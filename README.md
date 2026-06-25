@@ -50,6 +50,27 @@ git push -u origin master
 
 ## 启动服务
 
+### 本地最小依赖启动
+
+当前模板的 `server/src/main/resources/application.yaml` 已使用 Wow 的内存实现：
+
+- `wow.command.bus.type: in_memory`
+- `wow.event.bus.type: in_memory`
+- `wow.eventsourcing.store.storage: in_memory`
+- `wow.eventsourcing.snapshot.storage: in_memory`
+- `wow.kafka.enabled: false`
+
+`server/build.gradle.kts` 中 Elasticsearch、MongoDB、Redis、Kafka 等生产后端依赖保持注释状态，本地学习时不需要启动这些中间件。内存配置不会持久化数据，服务重启后数据会丢失。
+
+Windows PowerShell 下可直接从仓库根目录启动 `server`：
+
+```powershell
+cd C:\Users\LD_moxeii\Documents\code\only-workspace\wow-reference-content-studio
+.\gradlew.bat :server:run
+```
+
+要求本机已配置 JDK 17。首次执行时 Gradle Wrapper 会下载 Gradle 发行包和 Maven 依赖。
+
 <p align="center" style="text-align:center">
   <img src="./document/assets/run-server.png" alt="启动服务"/>
 </p>

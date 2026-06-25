@@ -40,7 +40,7 @@ application {
         "-Dcom.sun.management.jmxremote.port=5555",
         "-Dspring.cloud.bootstrap.enabled=true",
         "-Dspring.cloud.bootstrap.location=config/bootstrap.yaml",
-        "-Dspring.config.location=file:./config/",
+        "-Dspring.config.additional-location=optional:file:./config/",
     )
 }
 

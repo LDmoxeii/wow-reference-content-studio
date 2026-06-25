@@ -1,4 +1,4 @@
-rootProject.name = "wow-project-template"
+rootProject.name = "wow-reference-content-studio"
 include(":api")
 include(":domain")
 include(":server")
